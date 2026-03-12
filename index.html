@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
 body{font-family:'Outfit',sans-serif;scroll-behavior:smooth}
 .hero-gradient{background:linear-gradient(to bottom,rgba(0,0,0,.3),rgba(0,0,0,.7))}
@@ -66,21 +65,21 @@ body{font-family:'Outfit',sans-serif;scroll-behavior:smooth}
 <div class="bg-white rounded-xl shadow">
 <img id="room1img" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
 <div class="p-6">
-<h3 class="text-xl font-bold">Standard Room</h3>
+<h3 id="room1name" class="text-xl font-bold">Standard Room</h3>
 <p id="price1" class="text-green-700 font-bold">Ksh 8885 / night</p>
 </div>
 </div>
 <div class="bg-white rounded-xl shadow">
 <img id="room2img" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b">
 <div class="p-6">
-<h3 class="text-xl font-bold">Deluxe Cottage</h3>
+<h3 id="room2name" class="text-xl font-bold">Deluxe Cottage</h3>
 <p id="price2" class="text-green-700 font-bold">Ksh 12500 / night</p>
 </div>
 </div>
 <div class="bg-white rounded-xl shadow">
 <img id="room3img" src="https://images.unsplash.com/photo-1590490360182-c33d57733427">
 <div class="p-6">
-<h3 class="text-xl font-bold">Family Suite</h3>
+<h3 id="room3name" class="text-xl font-bold">Family Suite</h3>
 <p id="price3" class="text-green-700 font-bold">Ksh 18000 / night</p>
 </div>
 </div>
@@ -114,11 +113,15 @@ body{font-family:'Outfit',sans-serif;scroll-behavior:smooth}
 <h2 class="text-3xl text-white mb-6">Admin Dashboard</h2>
 <label class="text-white mb-2 block">Phone / WhatsApp</label>
 <input id="adminPhone" class="p-3 w-full mb-4">
+<h3 class="text-white mb-2">Room Names</h3>
+<input id="adminRoom1Name" class="p-3 w-full mb-2" placeholder="Room 1 Name">
+<input id="adminRoom2Name" class="p-3 w-full mb-2" placeholder="Room 2 Name">
+<input id="adminRoom3Name" class="p-3 w-full mb-4" placeholder="Room 3 Name">
 <h3 class="text-white mb-2">Room Prices</h3>
 <input id="adminPrice1" class="p-3 w-full mb-2">
 <input id="adminPrice2" class="p-3 w-full mb-2">
 <input id="adminPrice3" class="p-3 w-full mb-4">
-<h3 class="text-white mb-2">Images (URLs)</h3>
+<h3 class="text-white mb-2">Room Images (URLs)</h3>
 <input id="adminImg1" class="p-3 w-full mb-2">
 <input id="adminImg2" class="p-3 w-full mb-2">
 <input id="adminImg3" class="p-3 w-full mb-4">
@@ -129,6 +132,9 @@ body{font-family:'Outfit',sans-serif;scroll-behavior:smooth}
 <script>
 let siteData = JSON.parse(localStorage.getItem("siteData")) || {
 phone:"0797055547",
+room1Name:"Standard Room",
+room2Name:"Deluxe Cottage",
+room3Name:"Family Suite",
 price1:"Ksh 8885 / night",
 price2:"Ksh 12500 / night",
 price3:"Ksh 18000 / night",
@@ -139,6 +145,9 @@ img3:"https://images.unsplash.com/photo-1590490360182-c33d57733427"
 
 function applyData(){
 document.getElementById("phoneDisplay").innerText="Call: "+siteData.phone;
+document.getElementById("room1name").innerText=siteData.room1Name;
+document.getElementById("room2name").innerText=siteData.room2Name;
+document.getElementById("room3name").innerText=siteData.room3Name;
 document.getElementById("price1").innerText=siteData.price1;
 document.getElementById("price2").innerText=siteData.price2;
 document.getElementById("price3").innerText=siteData.price3;
@@ -168,6 +177,9 @@ setTimeout(()=>{adminClicks=0},1000)
 function showAdmin(){
 document.getElementById("adminPanel").style.display="block";
 document.getElementById("adminPhone").value=siteData.phone;
+document.getElementById("adminRoom1Name").value=siteData.room1Name;
+document.getElementById("adminRoom2Name").value=siteData.room2Name;
+document.getElementById("adminRoom3Name").value=siteData.room3Name;
 document.getElementById("adminPrice1").value=siteData.price1;
 document.getElementById("adminPrice2").value=siteData.price2;
 document.getElementById("adminPrice3").value=siteData.price3;
@@ -180,6 +192,9 @@ function hideAdmin(){document.getElementById("adminPanel").style.display="none"}
 
 function saveAdmin(){
 siteData.phone=document.getElementById("adminPhone").value;
+siteData.room1Name=document.getElementById("adminRoom1Name").value;
+siteData.room2Name=document.getElementById("adminRoom2Name").value;
+siteData.room3Name=document.getElementById("adminRoom3Name").value;
 siteData.price1=document.getElementById("adminPrice1").value;
 siteData.price2=document.getElementById("adminPrice2").value;
 siteData.price3=document.getElementById("adminPrice3").value;
