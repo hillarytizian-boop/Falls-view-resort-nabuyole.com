@@ -3,155 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Falls View Resort Nabuyole | Luxury Stay in Webuye</title>
-<meta name="description" content="Experience luxury and nature at Falls View Resort Nabuyole. Private cottages, swimming pool, and serene environment in Webuye, Kenya.">
+<title>Falls View Resort Nabuyole</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<script>
-tailwind.config = {
-theme: {
-extend: {
-colors: {
-brand: {
-green: '#5F8D4E',
-darkGreen: '#3F5E35',
-beige: '#F3E5AB',
-lightBeige: '#FAF3DD',
-sand: '#E8E0D0'
-}
-},
-fontFamily: {
-sans: ['Outfit','sans-serif'],
-serif: ['Playfair Display','serif']
-}
-}
-}
-}
-</script>
-
 <style>
-body{scroll-behavior:smooth}
-.glass-card{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px)}
-.hero-gradient{background:linear-gradient(to bottom,rgba(0,0,0,.3),rgba(0,0,0,.6))}
-.lightbox{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.9)}
-.lightbox-content{margin:auto;display:block;max-width:90%;max-height:80vh;margin-top:60px}
-.close{position:absolute;top:20px;right:40px;color:white;font-size:40px;cursor:pointer}
+body{font-family:'Outfit',sans-serif;scroll-behavior:smooth}
+.hero-gradient{background:linear-gradient(to bottom,rgba(0,0,0,.3),rgba(0,0,0,.7))}
+.hidden-admin{display:none}
 </style>
 </head>
-
-<body class="bg-brand-lightBeige text-gray-800 font-sans">
+<body class="bg-brand-lightBeige">
 
 <!-- NAV -->
-<nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
-<div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-20">
+<nav class="fixed top-0 w-full bg-white shadow z-50">
+<div class="max-w-7xl mx-auto flex justify-between items-center h-20 px-4">
 <div class="flex items-center gap-3">
-<div class="w-10 h-10 bg-brand-green text-white rounded-full flex items-center justify-center font-bold">F</div>
-<span class="font-serif font-bold text-xl text-brand-darkGreen">Falls View Resort</span>
+<div class="w-10 h-10 bg-green-700 text-white rounded-full flex items-center justify-center font-bold">F</div>
+<span class="font-bold text-xl" id="adminTrigger">Falls View Resort</span>
 </div>
-
-<div class="hidden md:flex gap-8 items-center">
+<div class="hidden md:flex gap-8">
 <a href="#overview">Overview</a>
-<a href="#details">Details</a>
 <a href="#rooms">Rooms</a>
 <a href="#gallery">Gallery</a>
-<a href="#contact" class="bg-brand-green text-white px-6 py-2 rounded-full">Book Now</a>
-</div>
-
-<button id="mobile-btn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
-</div>
-
-<div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-<div class="flex flex-col p-4 gap-4">
-<a href="#overview">Overview</a>
-<a href="#details">Details</a>
-<a href="#rooms">Rooms</a>
-<a href="#gallery">Gallery</a>
-<a href="#contact">Book Now</a>
+<a href="#contact" class="bg-green-700 text-white px-6 py-2 rounded-full">Book</a>
 </div>
 </div>
 </nav>
 
-<!-- TOP BOOKING BAR -->
-<div id="top-bar" class="fixed top-20 left-0 w-full bg-brand-green text-white py-3 px-4 hidden md:block z-40">
-<div class="max-w-7xl mx-auto flex justify-between">
-<span>From Ksh 8,885 / night</span>
-<button onclick="scrollToBooking()" class="bg-white text-brand-darkGreen px-6 py-1 rounded-full font-bold">Book Now</button>
-</div>
-</div>
-
 <!-- HERO -->
-<header class="relative h-[85vh] min-h-[600px] flex items-end pb-20">
-<div class="absolute inset-0">
-<img id="hero-bg" src="https://images.unsplash.com/photo-1501117716987-c8e1ecb210c8" class="w-full h-full object-cover">
-<div class="absolute inset-0 hero-gradient"></div>
-</div>
-
-<div class="relative z-10 max-w-7xl mx-auto px-4 text-white">
-<h1 class="font-serif text-6xl font-bold">Falls View Resort <span class="italic text-brand-beige">Nabuyole</span></h1>
-<p class="mt-4 text-xl">Experience serenity and modern luxury in Webuye, Kenya.</p>
-
-<div class="mt-6 flex gap-4">
-<button onclick="sendBooking()" class="bg-white text-brand-darkGreen px-6 py-3 rounded-full font-bold">Call Now</button>
-<a href="https://maps.google.com/?q=Webuye,Kenya" target="_blank" class="border border-white px-6 py-3 rounded-full">Directions</a>
-</div>
+<header class="relative h-[85vh] flex items-end pb-20">
+<img id="hero-bg" class="absolute w-full h-full object-cover" src="https://images.unsplash.com/photo-1501117716987-c8e1ecb210c8">
+<div class="hero-gradient absolute inset-0"></div>
+<div class="relative text-white max-w-7xl mx-auto px-6">
+<h1 class="text-6xl font-bold font-serif">Falls View Resort Nabuyole</h1>
+<p class="mt-4 text-xl">Luxury stay in Webuye Kenya</p>
+<button onclick="sendBooking()" class="mt-6 bg-white text-black px-6 py-3 rounded-full font-bold">Book via WhatsApp</button>
 </div>
 </header>
 
-<!-- BOOKING SECTION -->
-<section id="contact" class="py-20 bg-white">
-<div class="max-w-3xl mx-auto glass-card p-8 rounded-2xl shadow-xl">
-<h2 class="font-serif text-3xl font-bold mb-6 text-center">Book Your Stay</h2>
-
-<div class="grid grid-cols-2 gap-4">
-<input type="date" id="checkin" class="border p-3 rounded-lg">
-<input type="date" id="checkout" class="border p-3 rounded-lg">
+<!-- OVERVIEW -->
+<section id="overview" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto text-center">
+<h2 class="text-4xl font-serif font-bold mb-10">Resort Amenities</h2>
+<div id="amenities" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 px-6">
+<div class="p-6 bg-brand-lightBeige rounded-xl">Swimming Pool</div>
+<div class="p-6 bg-brand-lightBeige rounded-xl">Kids Playground</div>
+<div class="p-6 bg-brand-lightBeige rounded-xl">Conference Hall</div>
+<div class="p-6 bg-brand-lightBeige rounded-xl">Wedding Reception</div>
+<div class="p-6 bg-brand-lightBeige rounded-xl">Team Building Ground</div>
+<div class="p-6 bg-brand-lightBeige rounded-xl">Bar & Lounge</div>
 </div>
-
-<select id="guests" class="border p-3 rounded-lg w-full mt-4">
-<option>1 Adult</option>
-<option>2 Adults</option>
-<option>Family (4+)</option>
-</select>
-
-<button onclick="sendBooking()" class="w-full bg-brand-green text-white py-4 rounded-xl mt-6 font-bold">Check Availability</button>
-</div>
-
-<!-- MAP -->
-<div class="max-w-5xl mx-auto mt-16 px-4">
-<iframe src="https://www.google.com/maps?q=Webuye,+Kenya&output=embed"
-width="100%" height="350" style="border:0;border-radius:16px;" loading="lazy"></iframe>
 </div>
 </section>
 
 <!-- ROOMS -->
-<section id="rooms" class="py-20 bg-brand-sand/30">
-<div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
-<div class="bg-white rounded-2xl overflow-hidden shadow-md">
-<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2" class="h-56 w-full object-cover">
+<section id="rooms" class="py-20">
+<div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+<div class="bg-white rounded-xl shadow">
+<img id="room1img" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
 <div class="p-6">
-<h3 class="font-serif font-bold text-xl">Standard Room</h3>
-<p class="text-brand-green font-bold mt-2">Ksh 8,885 / night</p>
+<h3 class="text-xl font-bold">Standard Room</h3>
+<p id="price1" class="text-green-700 font-bold">Ksh 8885 / night</p>
 </div>
 </div>
-
-<div class="bg-white rounded-2xl overflow-hidden shadow-md">
-<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" class="h-56 w-full object-cover">
+<div class="bg-white rounded-xl shadow">
+<img id="room2img" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b">
 <div class="p-6">
-<h3 class="font-serif font-bold text-xl">Deluxe Cottage</h3>
-<p class="text-brand-green font-bold mt-2">Ksh 12,500 / night</p>
+<h3 class="text-xl font-bold">Deluxe Cottage</h3>
+<p id="price2" class="text-green-700 font-bold">Ksh 12500 / night</p>
 </div>
 </div>
-
-<div class="bg-white rounded-2xl overflow-hidden shadow-md">
-<img src="https://images.unsplash.com/photo-1590490360182-c33d57733427" class="h-56 w-full object-cover">
+<div class="bg-white rounded-xl shadow">
+<img id="room3img" src="https://images.unsplash.com/photo-1590490360182-c33d57733427">
 <div class="p-6">
-<h3 class="font-serif font-bold text-xl">Family Suite</h3>
-<p class="text-brand-green font-bold mt-2">Ksh 18,000 / night</p>
+<h3 class="text-xl font-bold">Family Suite</h3>
+<p id="price3" class="text-green-700 font-bold">Ksh 18000 / night</p>
 </div>
 </div>
 </div>
@@ -159,72 +89,107 @@ width="100%" height="350" style="border:0;border-radius:16px;" loading="lazy"></
 
 <!-- GALLERY -->
 <section id="gallery" class="py-20 bg-white">
-<div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-<img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb" class="gallery-img cursor-pointer rounded-xl">
-<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" class="gallery-img cursor-pointer rounded-xl">
-<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" class="gallery-img cursor-pointer rounded-xl">
-<img src="https://images.unsplash.com/photo-1501117716987-c8e1ecb210c8" class="gallery-img cursor-pointer rounded-xl">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 px-6">
+<img class="gallery-img rounded-xl cursor-pointer" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb">
+<img class="gallery-img rounded-xl cursor-pointer" src="https://images.unsplash.com/photo-1566073771259-6a8506099945">
+<img class="gallery-img rounded-xl cursor-pointer" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
+<img class="gallery-img rounded-xl cursor-pointer" src="https://images.unsplash.com/photo-1501117716987-c8e1ecb210c8">
 </div>
 </section>
 
-<div id="lightbox" class="lightbox">
-<span class="close">&times;</span>
-<img id="lightbox-img" class="lightbox-content">
-</div>
+<!-- CONTACT -->
+<section id="contact" class="py-20 text-center">
+<h2 class="text-4xl font-bold mb-6">Book Your Stay</h2>
+<p id="phoneDisplay" class="text-xl mb-4">Call: 0797055547</p>
+<button onclick="sendBooking()" class="bg-green-500 text-white px-8 py-4 rounded-full font-bold">Book on WhatsApp</button>
+</section>
 
-<!-- FLOATING WHATSAPP -->
-<a href="#" onclick="sendBooking()" class="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-white text-3xl shadow-xl">
+<!-- WHATSAPP FLOAT -->
+<a onclick="sendBooking()" class="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-white text-3xl">
 <i class="fab fa-whatsapp"></i>
 </a>
 
-<footer class="bg-brand-darkGreen text-white py-8 text-center">
-&copy; 2026 Falls View Resort Nabuyole. All Rights Reserved.
-</footer>
+<!-- ADMIN DASHBOARD -->
+<div id="adminPanel" class="hidden-admin fixed top-0 left-0 w-full h-full bg-black/90 z-50 p-10 overflow-auto">
+<h2 class="text-3xl text-white mb-6">Admin Dashboard</h2>
+<label class="text-white mb-2 block">Phone / WhatsApp</label>
+<input id="adminPhone" class="p-3 w-full mb-4">
+<h3 class="text-white mb-2">Room Prices</h3>
+<input id="adminPrice1" class="p-3 w-full mb-2">
+<input id="adminPrice2" class="p-3 w-full mb-2">
+<input id="adminPrice3" class="p-3 w-full mb-4">
+<h3 class="text-white mb-2">Images (URLs)</h3>
+<input id="adminImg1" class="p-3 w-full mb-2">
+<input id="adminImg2" class="p-3 w-full mb-2">
+<input id="adminImg3" class="p-3 w-full mb-4">
+<button onclick="saveAdmin()" class="bg-green-500 text-white px-6 py-3 rounded mb-4">Save Changes</button>
+<button onclick="hideAdmin()" class="bg-red-500 text-white px-6 py-3 rounded">Close</button>
+</div>
 
 <script>
-// Mobile
-document.getElementById("mobile-btn").onclick=()=>document.getElementById("mobile-menu").classList.toggle("hidden")
-
-// Hero slider
-const heroImages=[
-"https://images.unsplash.com/photo-1501117716987-c8e1ecb210c8",
-"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb",
-"https://images.unsplash.com/photo-1566073771259-6a8506099945"
-];
-let index=0;
-setInterval(()=>{
-index=(index+1)%heroImages.length;
-document.getElementById("hero-bg").src=heroImages[index];
-},5000);
-
-// Lightbox
-document.querySelectorAll(".gallery-img").forEach(img=>{
-img.onclick=()=>{
-document.getElementById("lightbox").style.display="block";
-document.getElementById("lightbox-img").src=img.src;
-}
-});
-document.querySelector(".close").onclick=()=>document.getElementById("lightbox").style.display="none";
-document.getElementById("lightbox").onclick=(e)=>{
-if(e.target.id==="lightbox") e.target.style.display="none";
+let siteData = JSON.parse(localStorage.getItem("siteData")) || {
+phone:"0797055547",
+price1:"Ksh 8885 / night",
+price2:"Ksh 12500 / night",
+price3:"Ksh 18000 / night",
+img1:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2",
+img2:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+img3:"https://images.unsplash.com/photo-1590490360182-c33d57733427"
 };
 
-// Booking
+function applyData(){
+document.getElementById("phoneDisplay").innerText="Call: "+siteData.phone;
+document.getElementById("price1").innerText=siteData.price1;
+document.getElementById("price2").innerText=siteData.price2;
+document.getElementById("price3").innerText=siteData.price3;
+document.getElementById("room1img").src=siteData.img1;
+document.getElementById("room2img").src=siteData.img2;
+document.getElementById("room3img").src=siteData.img3;
+}
+applyData();
+
 function sendBooking(){
-let checkin=document.getElementById("checkin").value;
-let checkout=document.getElementById("checkout").value;
-let guests=document.getElementById("guests").value;
-
-let message=`Hello Falls View Resort, I would like to book:%0A
-Check-in: ${checkin}%0A
-Check-out: ${checkout}%0A
-Guests: ${guests}`;
-
-window.open(`https://wa.me/254700000000?text=${message}`,'_blank');
+let message="Hello I want to book a room";
+window.open(`https://wa.me/254${siteData.phone.substring(1)}?text=${message}`,'_blank');
 }
 
-function scrollToBooking(){
-document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+// ADMIN PANEL
+let adminClicks=0;
+document.getElementById("adminTrigger").addEventListener("click",()=>{
+adminClicks++;
+if(adminClicks===2){
+let pass=prompt("Enter Admin Password:");
+if(pass==="Tizian"){showAdmin()}else{alert("Wrong Password!")}
+adminClicks=0;
+setTimeout(()=>{adminClicks=0},1000)
+}
+});
+
+function showAdmin(){
+document.getElementById("adminPanel").style.display="block";
+document.getElementById("adminPhone").value=siteData.phone;
+document.getElementById("adminPrice1").value=siteData.price1;
+document.getElementById("adminPrice2").value=siteData.price2;
+document.getElementById("adminPrice3").value=siteData.price3;
+document.getElementById("adminImg1").value=siteData.img1;
+document.getElementById("adminImg2").value=siteData.img2;
+document.getElementById("adminImg3").value=siteData.img3;
+}
+
+function hideAdmin(){document.getElementById("adminPanel").style.display="none"}
+
+function saveAdmin(){
+siteData.phone=document.getElementById("adminPhone").value;
+siteData.price1=document.getElementById("adminPrice1").value;
+siteData.price2=document.getElementById("adminPrice2").value;
+siteData.price3=document.getElementById("adminPrice3").value;
+siteData.img1=document.getElementById("adminImg1").value;
+siteData.img2=document.getElementById("adminImg2").value;
+siteData.img3=document.getElementById("adminImg3").value;
+localStorage.setItem("siteData",JSON.stringify(siteData));
+applyData();
+alert("Changes Saved!");
+hideAdmin();
 }
 </script>
 
